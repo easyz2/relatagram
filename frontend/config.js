@@ -1,5 +1,5 @@
 // frontend/config.js
-const LOCAL_IP = '192.168.1.104'; // or your LAN IP
+const LOCAL_IP = 'your_ip_address'; // or your LAN IP
 const PORT = 3000;
 
 export const API_CONFIG = {
