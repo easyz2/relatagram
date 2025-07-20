@@ -44,9 +44,90 @@ GEMINI_API_KEY=GEMINI_KEY
 node index.js
 ```
 
-## Transcript Microservice (/transcript)
+### # Transcript Microservice (/transcript)
+
+## Install Dependencies
+``` bash
+cd pip install youtube-transcript-api
+```
+## Start Service
 ``` bash
  cd relatagram_folder_location\relatagram\transcript\transcript.py
 ```
 ** or START Manually by double clicking on transcript.py file
+
+### # NCERT AI Concept Mapper (/ncert_database)
+## Setup Dependencies
+``` bash
+pip install Flask langchain-community huggingface-hub sentence-transformers python-dotenv google-generativeai chromadb
+```
+## Create a .env file with the following:
+``` env
+YOUTUBE_API_KEY=Youtube_API_KEY
+GEMINI_API_KEY=GEMINI_KEY
+
+```
+
+## Start Server
+``` bash
+cd relatagram_folder_location\relatagram\ncert database\ncert_mapper_server.py
+```
+** or or START Manually by double clicking on ncert_mapper_server.py file
+
+## # Database 
+More ncert or books data can be simply added by using the python script in the folder as follows :
+
+  1. Save the ncert chapter pdf in ncert_pdfs folder with name " Class Subject ch no."
+     ```
+      eg. 11th Physics ch 4
+     ``` 
+  2. Run the extracting script :
+     ``` bash
+     extract_ncert_text.py
+     ```
+  3. Run the Chunk Script :
+     ``` bash
+     chunk_ncert_text.py
+     ```
+  4. Run the Vector embedding script :
+     ``` bash
+     embed_chunks_to_chroma.py
+     ```
+  5. A Folder named " /ncert_vector_db " will be created with the vector embedded chunk file
+
+### # Frontend Setup (/frontend)
+## Setup Dependencies 
+``` bash
+cd frontend
+npm install
+```
+## Update Config.js
+put your local ip address
+```
+const LOCAL_IP = 'local_ip_address'; // or your LAN IP
+const PORT = 3000;
+
+export const API_CONFIG = {
+  BASE_URL: `http://${LOCAL_IP}:${PORT}/api/videos`,
+  TIMEOUT: 10000,
+};
+
+export const getApiHeaders = () => ({
+  'Content-Type': 'application/json',
+});
+
+```
+## Start Service
+``` bash
+npm start
+```
+or 
+``` bash
+npm expo start
+```
+## Contact
+For questions, feedback or collaborations, feel free to reach out or open an issue.
+
+
+
 
